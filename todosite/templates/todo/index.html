@@ -1,0 +1,67 @@
+{% extends '_partials/base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'todo/css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="header_3">List of Todos</h1>
+    {% include '_partials/messages.html' %}
+
+
+    {% if todos %}
+<div class="container" style="margin-left: 70px;margin-right: 70px;">
+  <table class="ui table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Completed</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for todo in todos %}
+
+      <tr>
+        <td>{{todo.title}}</td>
+        <td>{{todo.description}}</td>
+        <td>
+          {% if todo.is_completed %}
+              YES <i class="check icon green"></i>
+              {%else%}
+              NO <i class="cross icon red"></i>
+              {%endif%}
+        </td>
+        <td><a href="{%url 'todo_detail' todo.id %}" class="ui button"><i class="eye icon"></i></a></td>
+        <td><a href="{% url 'edit_todo' todo.id %}" class="ui button"><i class="pencil icon"></i></a></td>
+      </tr>
+
+      {%endfor%}
+    </tbody>
+    <tfoot>
+      <tr>
+        <th><a href="?filter=all">All {{all_count}}</a></th>
+        <th><a href="?filter=incomplete">{{incompleted_count}}  Remaining</a></th>
+        <th><a href="?filter=complete">{{completed_count}}    Completed</a></th>
+      </tr>
+    </tfoot>
+  </table>
+
+</div>
+    {% else %}
+      <div class="ui message" style="margin-left: 200px;margin-right: 200px;">
+        <div class="header">
+          No items Yet
+        </div>
+        <p>You can create your first Todo <a href="{% url 'create_todo'%}">Add New</a></p>
+      </div>
+
+
+    {% endif %}
+  
+    {% endblock %}

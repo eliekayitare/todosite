@@ -1,0 +1,44 @@
+.header_ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(25, 25, 218, 0.726);
+    height: 60px;
+    
+  }
+  
+  .header_ul li {
+    float: left;
+    display: fixed;
+  }
+  
+  .header_ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .header_ul li a:hover {
+    background-color: #111;
+  }
+
+ .register ul{
+     
+     list-style-type: none; 
+     float: right;
+     margin-right: 80px;
+     
+ }
+ .todo ul{
+     list-style-type:none;
+     margin-left: 270px;
+ }
+
+ .signout li{
+  list-style-type: none; 
+  float: right;
+  margin-right: 80px;
+ }

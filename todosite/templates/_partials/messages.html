@@ -1,0 +1,14 @@
+{% if messages %}
+
+{% for message in messages%}
+
+<div class="ui {{message.tags}} message" style="font-size: large;">
+
+    {{message}}
+</div>
+
+{% endfor%}
+
+
+
+{% endif %}

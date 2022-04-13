@@ -1,0 +1,31 @@
+{% extends '_partials/base.html' %}
+
+{% block title %}
+
+Login
+
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="container" style="margin-left: 450px;margin-top: 50px;">
+    {% include '_partials/messages.html' %}
+    <h3 style="margin-left: 140px;margin-top: 100px;color: rgba(0, 26, 255, 0.952);">Login Here</h3>
+    
+    <form  action="{% url 'login' %}" method="post" style="margin-left: 100px;">
+
+        {%csrf_token%}
+        
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            
+        <input type="submit" class="ui button primary" value="Login" style="margin-left: 40px;">
+
+    </form>
+    <div class="ui message">Don't have  an account ? <a href="{% url 'register' %}">Register</a ></div>
+</div>
+
+    {% endblock %}

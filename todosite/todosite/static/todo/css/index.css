@@ -1,0 +1,16 @@
+
+  .row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 33.33%;
+    padding: 10px;
+  }
+
+  .header_3
+  {
+    text-align: center; 
+    font-size: 80px;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  }

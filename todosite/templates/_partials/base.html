@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home
+
+        {% block title%}
+
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'todo/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'todo/css/footer.css' %}">
+    {% block css %}
+
+    {% endblock %}
+</head>
+<body>
+    
+        {% include '_partials/header.html' %}
+       
+        {% block content %}
+
+        {% endblock %}
+
+        <div style="margin-top: 300px;">
+            {% include '_partials/footer.html' %}
+           
+        </div>
+    
+     
+
+      
+    
+</body>
+</html>

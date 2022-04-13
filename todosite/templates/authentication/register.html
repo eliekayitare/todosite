@@ -1,0 +1,40 @@
+{% extends '_partials/base.html' %}
+
+{% load static %}
+{% block title %}
+
+Create Account
+
+{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-left: 450px;margin-top: 50px;">
+    <h3 style="margin-left: 140px;margin-top: 100px;color: rgba(0, 26, 255, 0.952);">Create Account</h3>
+    {% include '_partials/messages.html' %}
+    
+    <form  action="{% url 'register' %}" method="post" style="margin-left: 100px;">
+
+        {%csrf_token%}
+        
+            <label for="first_name">First Name:</label><br>
+            <input type="text" id="fname" name="fname"><br><br>
+            <label for="last_name">Last Name:</label><br>
+            <input type="text" id="lname" name="lname"><br><br>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" value="{{data.username}}" name="username"><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" value="{{data.email}}"><br><br>
+            <label for="password">password:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+            <label for="confirm_password">Confirm Password:</label><br>
+            <input type="password" id="confirm_password" name="confirm_password"><br><br>
+            
+        <input type="submit" class="ui button primary" value="Register" style="margin-left: 40px;">
+
+    </form>
+    <div class="ui message">Have an account ? <a href="{% url 'login' %}">Login</a></div>
+
+</div>
+   
+
+    {% endblock %}

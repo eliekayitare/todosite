@@ -1,0 +1,25 @@
+{% extends '_partials/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container" style="margin-left: 450px;margin-top: 50px;">
+    <h3 style="margin-left: 40px;color: rgba(0, 26, 255, 0.952);">Create Todo</h3>
+    {% include '_partials/messages.html' %}
+    <form  action="{% url 'create_todo' %}" method="post">
+
+        {%csrf_token%}
+        
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title"><br><br>
+            <label for="description">Description:</label><br>
+            <textarea name="description" id="description" cols="23" rows="5"></textarea><br><br>
+            <label for="is_completed">Is_completed:</label>
+            <input type="checkbox" id="is_completed" name="is_completed"><br><br>
+
+        <input type="submit" class="ui button primary" value="submit" style="margin-left: 40px;">
+
+    </form>
+
+</div>
+    {% endblock %}
