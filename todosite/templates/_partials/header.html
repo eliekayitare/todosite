@@ -1,37 +1,29 @@
 {% load static %}
 
 <ul class="header_ul">
-    <!-- <li><a class="active" href="{% url 'home' %}"><img src="{% static 'todo/img/logo.png'%}" alt=""></a></li> -->
-    <div class="todo">
-        <ul>
-            <li><a class="active" href="{% url 'home' %}">Home</a></li>
-            {% comment %}
-            
-            {% if request.user.is_authenticated %}
-            
-        {% endcomment %}
-             <li><a href="{% url 'create_todo' %}">Create Todo</a></li>
+  <li><a class="active" href="{% url 'home' %}"><img src="{% static 'todo/img/logo.png'%}" alt="" height="60px" width="60%"></a></li>
+  <div class="todo">
+    
+      <li style="margin-left: 250px;"><a class="active" href="{% url 'home' %}">Home</a></li>
 
-        </ul>
+      {% if request.user.is_authenticated %}
+
+      <li><a href="{% url 'create_todo' %}">Create Todo</a></li>
     
-    </div>
-    {% comment %}
-    {% if request.user.is_authenticated %}
-    {% endcomment %}
-    <li class="signout" style="float: right;margin-right:100px;"><a href="{% url 'logout_user' %}">Sign out({{request.user.username}})</a></li>
-    {% comment %}
-    {% else %}
-    {% endcomment %}
-    <div class="register">
-        <ul>
-            <li ><a href="{% url 'register' %}">Register</a></li>
-            <li ><a href="{% url 'login' %}">Login</a></li>
-        </ul>
-        
-    </div>
-    {% comment %}
+  </div>
+
+  <li class="signout" style="float: right; margin-right: 100px">
+    <a href="{% url 'logout_user' %}">Sign out({{request.user.username}})</a>
+  </li>
+
+  {% else %}
+
+  <div class="register" style="float:right;margin-right:80px">
     
-    {% endif %}
+      <li><a href="{% url 'register' %}">Register</a></li>
+      <li><a href="{% url 'login' %}">Login</a></li>
     
-    {% endcomment %}
-  </ul>
+  </div>
+
+  {% endif %}
+</ul>

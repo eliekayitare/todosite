@@ -13,7 +13,7 @@ Delete todo
 {% csrf_token %}
 <p>Are you sure you want to delete this todo </p>
 <input type="Submit" class="ui button negative" name="" id="" value="YES">
-<a href="{% url 'todo_detail' todo_detail.id %}">Cancel</a>
+<a href="{% url 'home' %}">Cancel</a>
   </form>
 
 {% endblock %} 

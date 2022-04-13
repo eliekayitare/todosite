@@ -45,6 +45,7 @@ def create_todo(request):
 def todo_detail(request,id):
     todo_detail=Todo.objects.get(id=id)
     return render(request,'todo/todo_detail.html',{'todo_detail':todo_detail})
+
 @login_required
 def delete_todo(request,id):
     todos=Todo.objects.get(id=id)
@@ -54,9 +55,8 @@ def delete_todo(request,id):
             todos.delete()
             messages.add_message(request,messages.SUCCESS,"Todo deleted")
             return redirect('home')
-        return render(request,'todo/delete_todo.html',{'todos':todos})
+        #return render(request,'todo/delete_todo.html',{'todos':todos})
 
-    # todo_detail=get_object_or_404(Todo,pk)
     return render(request,'todo/delete_todo.html',{'todos':todos})
 
 @login_required
